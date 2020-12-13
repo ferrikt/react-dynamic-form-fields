@@ -113,18 +113,3 @@ const App = () => {
 };
 
 export default App;
-
-// each member has first and last name and id
-//on did mount initialize empty member with id
-
-//om app press add empty member but with id
-
-//on edit text box edit current member by id
-//on change for first and last name
-
-// <div id="xxx">
-//   <firstname></firstname>
-//   <lastname></lastname>
-//   <add />
-//   <remove />
-// </div>;
