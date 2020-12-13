@@ -35,9 +35,21 @@ const App = () => {
     return () => setMembers([]);
   }, []);
 
-  const addMember = () => {}; // add empty member with id
-
-  const removeMember = () => {}; // remove  member by id
+  // add empty member with id
+  const addMember = () => {
+    setMembers([
+      ...members,
+      {
+        id: (members.length + 1).toString(),
+        firstName: "",
+        lastName: "",
+      },
+    ]);
+  };
+  // remove  member by id
+  const removeMember = (id) => {
+    setMembers(members.filter((member) => member.id != id));
+  };
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -60,7 +72,7 @@ const App = () => {
       <h1>Add New Member</h1>
       <form className={classes.root} onSubmit={onSubmit}>
         {members.map((member) => (
-          <div id={member.id} key={member.id}>
+          <div key={member.id}>
             <TextField
               value={member.firstName}
               name="firstName"
@@ -73,9 +85,28 @@ const App = () => {
               placeholder="Last Name"
               onChange={(e) => changeValue(member.id, e)}
             ></TextField>
+            <IconButton
+              disabled={members.length === 1}
+              onClick={() => removeMember(member.id)}
+            >
+              <RemoveIcon />
+            </IconButton>
+            <IconButton onClick={addMember}>
+              <AddIcon />
+            </IconButton>
           </div>
         ))}
-        <Button type="submit">Submit</Button>
+
+        <Button
+          className={classes.button}
+          variant="contained"
+          color="primary"
+          type="submit"
+          endIcon={<Icon>send</Icon>}
+          onClick={onSubmit}
+        >
+          Send
+        </Button>
       </form>
     </>
   );
