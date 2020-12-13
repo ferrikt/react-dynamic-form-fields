@@ -122,9 +122,9 @@ export default App;
 //on edit text box edit current member by id
 //on change for first and last name
 
-<div id="xxx">
-  <firstname></firstname>
-  <lastname></lastname>
-  <add />
-  <remove />
-</div>;
+// <div id="xxx">
+//   <firstname></firstname>
+//   <lastname></lastname>
+//   <add />
+//   <remove />
+// </div>;
